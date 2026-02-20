@@ -28,14 +28,12 @@ const App: React.FC = () => {
     } else if (plan === 2) {
       // 30th: 20% boost (Carried over)
       if (dayIndex === 0) return 1.25;
-      // 1st and 2nd: 0%
-      if (dayIndex === 1 || dayIndex === 2) return 1;
-      // Days 3-8 (index 3 to 8): 10%
-      if (dayIndex >= 3 && dayIndex <= 8) return 1 / 0.9;
-      // Days 9-11 (index 9 to 11): 15%
-      if (dayIndex >= 9 && dayIndex <= 11) return 1 / 0.85;
-      // Day 12 (index 12): 20%
-      if (dayIndex === 12) return 1.25;
+      // 1st to 6th: 10%
+      if (dayIndex >= 1 && dayIndex <= 6) return 1 / 0.9;
+      // 7th to 9th: 15%
+      if (dayIndex >= 7 && dayIndex <= 9) return 1 / 0.85;
+      // 10th to 12th: 20%
+      if (dayIndex >= 10) return 1.25;
     }
     return 1;
   };
@@ -171,7 +169,7 @@ const App: React.FC = () => {
         <p>Range: 30th to 12th (13 days). Boost applies for the full duration based on start day.</p>
         <div className="boost-details">
           {boostOption === 1 && <p>Old GP: 30th (20%), 1-7th (15%), 8-12th (20%)</p>}
-          {boostOption === 2 && <p>New GP: 30th (20%), 1-2nd (0%), 3-8th (10%), 9-11th (15%), 12th (20%)</p>}
+          {boostOption === 2 && <p>New GP: 30th (20%), 1-6th (10%), 7-9th (15%), 10-12th (20%)</p>}
         </div>
       </footer>
 
@@ -179,31 +177,31 @@ const App: React.FC = () => {
         <h3>FAQ</h3>
         <p>
           <strong>How was the New GP boost schedule calculated?</strong><br/>
-          The boost schedule assumes 110 points are possible per day for new milestones, with the initial 20% boost carried over from the previous season for only the first day (30th).
+          The boost schedule assumes 330 points on the first day and 110 points every following day, with the initial 20% boost carried over from the previous season for only the first day (30th).
         </p>
         <table className="boost-table">
           <thead>
             <tr>
               <th>Points</th>
               <th>Gold Pass Reward</th>
-              <th>Est. Day (110 pts/day)</th>
+              <th>Est. Day</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>240</td>
               <td>10% Builder Boost</td>
-              <td>Day 3</td>
+              <td>Day 1</td>
             </tr>
             <tr>
               <td>900</td>
               <td>15% Builder Boost</td>
-              <td>Day 9</td>
+              <td>Day 7</td>
             </tr>
             <tr>
               <td>1300</td>
               <td>20% Builder Boost</td>
-              <td>Day 12</td>
+              <td>Day 10</td>
             </tr>
           </tbody>
         </table>
