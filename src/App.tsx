@@ -28,12 +28,12 @@ const App: React.FC = () => {
     } else if (plan === 2) {
       // 30th: 20% boost (Carried over)
       if (dayIndex === 0) return 1.25;
-      // 1st to 6th: 10%
-      if (dayIndex >= 1 && dayIndex <= 6) return 1 / 0.9;
-      // 7th to 9th: 15%
-      if (dayIndex >= 7 && dayIndex <= 9) return 1 / 0.85;
-      // 10th to 12th: 20%
-      if (dayIndex >= 10) return 1.25;
+      // 1st to 2nd: 10%
+      if (dayIndex >= 1 && dayIndex <= 2) return 1 / 0.9;
+      // 3rd to 8th: 15%
+      if (dayIndex >= 3 && dayIndex <= 8) return 1 / 0.85;
+      // 9th to 12th: 20%
+      if (dayIndex >= 9) return 1.25;
     }
     return 1;
   };
@@ -169,7 +169,7 @@ const App: React.FC = () => {
         <p>Range: 30th to 12th (13 days). Boost applies for the full duration based on start day.</p>
         <div className="boost-details">
           {boostOption === 1 && <p>Old GP: 30th (20%), 1-7th (15%), 8-12th (20%)</p>}
-          {boostOption === 2 && <p>New GP: 30th (20%), 1-6th (10%), 7-9th (15%), 10-12th (20%)</p>}
+          {boostOption === 2 && <p>New GP: 30th (20%), 1-2nd (10%), 3-8th (15%), 9-12th (20%)</p>}
         </div>
       </footer>
 
@@ -177,7 +177,7 @@ const App: React.FC = () => {
         <h3>FAQ</h3>
         <p>
           <strong>How was the New GP boost schedule calculated?</strong><br/>
-          The boost schedule assumes 330 points on the first day and 110 points every following day, with the initial 20% boost carried over from the previous season for only the first day (30th).
+          The boost schedule assumes 440 points on the first day and 110 points every following day, with the initial 20% boost carried over from the previous season for only the first day (30th).
         </p>
         <table className="boost-table">
           <thead>
@@ -189,19 +189,19 @@ const App: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>240</td>
+              <td>50</td>
               <td>10% Builder Boost</td>
               <td>Day 1</td>
             </tr>
             <tr>
-              <td>900</td>
+              <td>750</td>
               <td>15% Builder Boost</td>
-              <td>Day 7</td>
+              <td>Day 3</td>
             </tr>
             <tr>
               <td>1300</td>
               <td>20% Builder Boost</td>
-              <td>Day 10</td>
+              <td>Day 9</td>
             </tr>
           </tbody>
         </table>
