@@ -114,11 +114,11 @@ const App: React.FC = () => {
             <button 
               className={boostOption === 1 ? 'active' : ''} 
               onClick={() => setBoostOption(1)}
-            >Old GP (20/15/20)</button>
+            >Old GP</button>
             <button 
               className={boostOption === 2 ? 'active' : ''} 
               onClick={() => setBoostOption(2)}
-            >New GP (0/10/15/20)</button>
+            >New GP</button>
           </div>
         </div>
       </div>
